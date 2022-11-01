@@ -1,0 +1,51 @@
+.create-category {
+  width: 100%;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.create-category h1 {
+  font-size: var(--font-medium);
+  font-family: "Roboto";
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.create-category input {
+  padding: 15px;
+  border: 1px solid var(--light-color);
+  border-radius: 3px;
+  font-size: var(--font-smallest);
+  width: 100%;
+  outline: none;
+}
+
+.create-category .err {
+  font-size: 12px;
+  color: red;
+  margin-top: -5px;
+}
+
+.create-category button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 30px;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: var(--transition);
+  margin-top: 15px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-category button:hover {
+  background: var(--secondary-color);
+}
