@@ -78,12 +78,9 @@ const Sidebar = (props) => {
 
               <ul className={`sub-menu`}>
                 <li>
+                  <NavLink to='/dashboard/overview'>Overview</NavLink>
                   <NavLink to='/dashboard/create-agent'>Create Agent</NavLink>
-                  <NavLink to='/dashboard/newest-orders'>Newest Orders</NavLink>
-                  <NavLink to='/dashboard/newest-products'>
-                    Newest Products
-                  </NavLink>
-                  <NavLink to='/dashboard/newest-users'>New Users</NavLink>
+                  <NavLink to='/dashboard/all-activity'>All Activity</NavLink>
                 </li>
               </ul>
             </li>
@@ -96,14 +93,19 @@ const Sidebar = (props) => {
                 >
                   <i className='bi bi-gift'></i>
                 </div>
-                <span>Orders</span>
+                <span>Portfolios</span>
               </div>
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/order/create-order'>Create Order</NavLink>
-                  <NavLink to='/order/all-orders'>All Orders</NavLink>
-                  <NavLink to='/order/pending-orders'>Pending</NavLink>
-                  <NavLink to='/order/funded-orders'>Funded</NavLink>
+                  <NavLink to='/dashoard/all-portfolios'>
+                    All Portfolios
+                  </NavLink>
+                  <NavLink to='/dashboard/investment-portfolio'>
+                    Investment Portfolios
+                  </NavLink>
+                  <NavLink to='/dashboard/cash-portfolio'>
+                    Cash Portfolios
+                  </NavLink>
                 </li>
               </ul>
             </li>
@@ -116,17 +118,17 @@ const Sidebar = (props) => {
                 >
                   <i className='bi bi-bag'></i>
                 </div>
-                <span>Products</span>
+                <span>Payments</span>
               </div>
 
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/product/create-categories'>
-                    Create Categories
+                  <NavLink to='/dashboard/create-payment'>
+                    Create Payment
                   </NavLink>
-                  <NavLink to='product/all-categories'>All Categories</NavLink>
-                  <NavLink to='/product/create-product'>Create Product</NavLink>
-                  <NavLink to='product/all-products'>All Products</NavLink>
+                  <NavLink to='dashboard/all-payment'>All Payment</NavLink>
+                  <NavLink to='dashboard/all-withdrawal'>Withdrawal</NavLink>
+                  <NavLink to='dashboard/all-deposits'>Deposits</NavLink>
                 </li>
               </ul>
             </li>
@@ -155,106 +157,16 @@ const Sidebar = (props) => {
                   className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
                   onClick={handleToggle}
                 >
-                  <i className='bi bi-person-bounding-box'></i>
-                </div>
-                <span>Vendors</span>
-              </div>
-
-              <ul className={`sub-menu`}>
-                <li>
-                  <NavLink to='/vendor/create-vendor'>Create Vendor</NavLink>
-                  <NavLink to='/vendor/all-vendors'>All Vendors</NavLink>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <div className='menu-item'>
-                <div
-                  className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
-                  onClick={handleToggle}
-                >
-                  <i className='bi bi-badge-ad'></i>
-                </div>
-                <span>Advertise</span>
-              </div>
-              <ul className={`sub-menu`}>
-                <li>
-                  <NavLink to='/advert/create-advert'>Create Advert</NavLink>
-                  <NavLink to='/advert/all-adverts'>All Adverts</NavLink>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <div className='menu-item'>
-                <div
-                  className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
-                  onClick={handleToggle}
-                >
-                  <i className='bi bi-patch-question'></i>
-                </div>
-                <span>Faqs</span>
-              </div>
-
-              <ul className={`sub-menu`}>
-                <li>
-                  <NavLink to='/faqs/create-faqs'>Create Faqs</NavLink>
-                  <NavLink to='/faqs/all-faqa'>All Faqs</NavLink>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <div className='menu-item'>
-                <div
-                  className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
-                  onClick={handleToggle}
-                >
-                  <i className='bi bi-info-circle'></i>
-                </div>
-                <span>Help Center</span>
-              </div>
-              <ul className={`sub-menu`}>
-                <li>
-                  <NavLink to='/student/login'>Make Complain</NavLink>
-                  <NavLink to='/complain/view_complain'>View Complain</NavLink>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <div className='menu-item'>
-                <div
-                  className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
-                  onClick={handleToggle}
-                >
-                  <i className='bi bi-newspaper'></i>
-                </div>
-                <span>Newsletter</span>
-              </div>
-              <ul className={`sub-menu`}>
-                <li>
-                  <NavLink to='/student/login'>Make Complain</NavLink>
-                  <NavLink to='/complain/view_complain'>View Complain</NavLink>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <div className='menu-item'>
-                <div
-                  className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
-                  onClick={handleToggle}
-                >
                   <i className='bi bi-gear'></i>
                 </div>
                 <span>Settings</span>
               </div>
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/settings/preference'>Make Complain</NavLink>
-                  <NavLink to='/settings/profile'>View Complain</NavLink>
+                  <NavLink to='/settings/create-complain'>
+                    Create Complain
+                  </NavLink>
+                  <NavLink to='/settings/view-complain'>View Complain</NavLink>
                   <NavLink to='/settings/logout'>Logout</NavLink>
                 </li>
               </ul>
