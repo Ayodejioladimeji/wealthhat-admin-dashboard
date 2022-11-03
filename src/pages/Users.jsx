@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Layout from '../common/Layout';
 import User from './../components/users/Users';
 
 // COMPONENTS
@@ -11,9 +12,11 @@ const Users = () => {
 
   //
   return (
-    <div id={toggle ? 'response' : 'responsive'}>
-      <User />
-    </div>
+    <Layout>
+      <div id={toggle ? 'response' : 'responsive'}>
+        <User />
+      </div>
+    </Layout>
   );
 };
 

@@ -38,14 +38,14 @@ const Users = () => {
 
   //
   return (
-    <div className='products'>
-      <div className='products-heading'>
-        <div className='products-header'>
+    <div className='users'>
+      <div className='users-heading'>
+        <div className='users-header'>
           <h2>All Users</h2>
           <Goback />
         </div>
 
-        <div className='myproducts-image'>
+        <div className='myusers-image'>
           <img src='/assets/gadgets.png' alt='' />
         </div>
       </div>
@@ -69,7 +69,7 @@ const Users = () => {
           <Loading width='45px' height='45px' color='#A1257D' />
         </div>
       ) : (
-        <div className='products-table'>
+        <div className='users-table'>
           {/* display showing the length of items if current data is not null */}
           {currentData !== null && (
             <small className='showing'>
@@ -78,7 +78,7 @@ const Users = () => {
           )}
 
           {currentData === null ? (
-            <p className='text-center mt-4'>No products found</p>
+            <p className='text-center mt-4'>No users found</p>
           ) : (
             <table className='table'>
               <thead>
@@ -144,7 +144,7 @@ const Users = () => {
 
       {/* <p className="text-center mt-5">
         {currentData?.length === 0 && !loading && !alert.loading
-          ? "products not found"
+          ? "users not found"
           : ""}{" "}
       </p> */}
     </div>

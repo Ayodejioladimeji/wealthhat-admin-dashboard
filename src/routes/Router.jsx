@@ -3,11 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 //
 import Overview from './../pages/Overview';
 import Login from './../pages/Login';
-import Orders from './../pages/Orders';
 import Users from '../pages/Users';
 import ProductDetails from './../pages/ProductDetails';
-import CreateCategories from './../pages/CreateCategories';
-import AllCategories from './../pages/AllCategories';
 import SubCategories from './../pages/SubCategories';
 
 //
@@ -20,11 +17,7 @@ const Router = () => {
 
       {/* ================================================================ */}
       {/* AUTHENTICATION SECTION */}
-      <Route path='/login' element={<Login />} />
-
-      {/* ============================================================== */}
-      {/* THE ORDERS SECTION */}
-      <Route path='/order/all-orders' element={<Orders />} />
+      <Route path='/sign_in' element={<Login />} />
 
       {/* =================================================================== */}
       {/* THE USERS SECTION */}
@@ -33,8 +26,7 @@ const Router = () => {
         path='users/all-products/:productsid'
         element={<ProductDetails />}
       />
-      <Route path='users/create-user' element={<CreateCategories />} />
-      <Route path='users/all-categories' element={<AllCategories />} />
+
       <Route
         path='users/all-categories/:categoryid'
         element={<SubCategories />}

@@ -78,7 +78,7 @@ const Sidebar = (props) => {
 
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/dashboard/overview'>Overview</NavLink>
+                  <NavLink to='/'>Overview</NavLink>
                   <NavLink to='/dashboard/create-agent'>Create Agent</NavLink>
                   <NavLink to='/dashboard/all-activity'>All Activity</NavLink>
                 </li>
@@ -118,7 +118,7 @@ const Sidebar = (props) => {
                 >
                   <i className='bi bi-bag'></i>
                 </div>
-                <span>Payments</span>
+                <span>Transactions</span>
               </div>
 
               <ul className={`sub-menu`}>
@@ -129,6 +129,7 @@ const Sidebar = (props) => {
                   <NavLink to='dashboard/all-payment'>All Payment</NavLink>
                   <NavLink to='dashboard/all-withdrawal'>Withdrawal</NavLink>
                   <NavLink to='dashboard/all-deposits'>Deposits</NavLink>
+                  <NavLink to='dashboard/all-deposits'>Withdraw Request</NavLink>
                 </li>
               </ul>
             </li>

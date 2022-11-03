@@ -3,8 +3,6 @@ import './App.css';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './routes/Router';
-import Sidebar from './components/sidebar/Sidebar';
-import Topbar from './components/topbar/Topbar';
 import ScrollToTop from './common/ScrollToTop';
 import Alert from './common/alert/Alert';
 import { all_users } from './redux/actions/usersAction';
@@ -22,8 +20,6 @@ function App() {
     <BrowserRouter>
       <ScrollToTop>
         <Alert />
-        <Topbar />
-        <Sidebar />
         <Router />
       </ScrollToTop>
     </BrowserRouter>
