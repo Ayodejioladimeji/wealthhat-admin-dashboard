@@ -1,0 +1,187 @@
+.side-menu {
+  position: fixed;
+  top: 0;
+  background: var(--black-color);
+  width: 260px;
+  height: 100%;
+  box-sizing: border-box;
+  transition: width 0.2s ease-in;
+  z-index: 99999;
+  padding-right: 5px;
+}
+
+.side-menu.inactive {
+  width: 80px;
+  transition: width 0.2s ease-in;
+}
+
+/* media query */
+@media screen and (max-width: 425px) {
+  .side-menu.inactive {
+    width: 80px;
+    display: none;
+  }
+}
+
+.side-menu .top-section {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  border-bottom: 1px solid var(--deep-color);
+}
+
+.side-menu .top-section .logo {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.side-menu .top-section .logo img {
+  width: 110px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.top-section .toggle-logo {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-color);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.toggle-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.side-menu .main-menu {
+  position: relative;
+  max-height: 670px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+  padding: 0 15px;
+}
+
+.side-menu .main-menu::-webkit-scrollbar {
+  width: 7px;
+}
+
+.side-menu .main-menu::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--light-color);
+  border-radius: 10px;
+}
+
+.side-menu .main-menu::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.side-menu .main-menu .menu-item {
+  color: var(--white-color);
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  font-weight: 400;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 3px 0;
+  border-radius: 5px;
+  transition: var(--transition);
+}
+
+.main-menu .menu-item:hover {
+  background: var(--primary-color);
+}
+
+.side-menu .main-menu .menu-item.active {
+  background: var(--primary-color);
+  border-radius: 5px;
+  color: var(--white-color);
+}
+
+.side-menu .main-menu .menu-item .menu-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  transition: var(--transition);
+  color: var(--white-color);
+}
+
+.menu-item .menu-icons {
+  margin-left: 3px;
+}
+
+.side-menu .main-menu .menu-item span {
+  position: absolute;
+  display: inline-block;
+  line-height: 40px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.side-menu.inactive .main-menu .menu-item span {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.side-menu .main-menu .sub-menu {
+  color: var(--light-color);
+  margin-left: 20px;
+  border-left: 1px solid var(--primary-color);
+  box-sizing: border-box;
+  padding-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in;
+}
+
+.side-menu .main-menu .sub-menu.active {
+  max-height: 300px;
+}
+
+.side-menu .main-menu .sub-menu a {
+  display: block;
+  margin: 5px 0;
+  font-size: var(--font-smaller);
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--light-color);
+  box-sizing: border-box;
+  padding: 8px;
+  transition: var(--transition);
+}
+
+.main-menu .sub-menu a:hover {
+  background: var(--secondary-color);
+  border-radius: 5px;
+}
+
+.side-menu .main-menu .sub-menu a.active {
+  background: var(--secondary-color);
+  display: block;
+
+  border-radius: 5px;
+  color: var(--white-color);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background: var(--tetiary);
+}
