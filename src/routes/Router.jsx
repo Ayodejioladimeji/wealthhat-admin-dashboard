@@ -4,8 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import Overview from './../pages/Overview';
 import Login from './../pages/Login';
 import Users from '../pages/Users';
-import ProductDetails from './../pages/ProductDetails';
-import SubCategories from './../pages/SubCategories';
 
 //
 
@@ -22,7 +20,7 @@ const Router = () => {
       {/* =================================================================== */}
       {/* THE USERS SECTION */}
       <Route path='users/all-users' element={<Users />} />
-      <Route
+      {/* <Route
         path='users/all-products/:productsid'
         element={<ProductDetails />}
       />
@@ -30,7 +28,7 @@ const Router = () => {
       <Route
         path='users/all-categories/:categoryid'
         element={<SubCategories />}
-      />
+      /> */}
     </Routes>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import Signin from './../components/login/Signin';
+import AgentLogin from './../components/login/Login';
 
 // COMPONENTS
 
@@ -7,7 +7,7 @@ import Signin from './../components/login/Signin';
 
 const Login = () => {
   //
-  return <Signin />;
+  return <AgentLogin />;
 };
 
 export default Login;
