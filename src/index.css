@@ -134,7 +134,7 @@ input[type="text"] {
   outline: none !important;
   border: 1px solid var(--border-color);
   margin-bottom: 15px !important;
-  font-size: var(--font-smalling);
+  font-size: var(--font-smaller);
 }
 
 input[type="password"] {
@@ -144,7 +144,7 @@ input[type="password"] {
   outline: none !important;
   border: 1px solid var(--border-color);
   margin-bottom: 15px !important;
-  font-size: var(--font-smalling);
+  font-size: var(--font-smaller);
 }
 
 input[type="number"] {
@@ -154,7 +154,7 @@ input[type="number"] {
   outline: none !important;
   border: 1px solid var(--border-color);
   margin-bottom: 15px;
-  font-size: var(--font-smalling);
+  font-size: var(--font-smaller);
 }
 
 input[type="checkbox"] {
@@ -169,7 +169,7 @@ select {
   outline: none !important;
   border: 1px solid var(--border-color);
   margin-bottom: 15px !important;
-  font-size: var(--font-smalling) !important;
+  font-size: var(--font-smaller) !important;
   background: var(--white);
 }
 

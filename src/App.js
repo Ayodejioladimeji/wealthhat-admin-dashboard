@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react';
-import './App.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+
+// Components
 import Router from './routes/Router';
 import ScrollToTop from './common/ScrollToTop';
 import Alert from './common/alert/Alert';
 import { all_users } from './redux/actions/usersAction';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
 
   // useEffect
   useEffect(() => {
-    dispatch(all_users());
+    if (token) {
+      dispatch(all_users(token));
+    }
   }, [dispatch]);
 
   //

@@ -119,6 +119,7 @@
   outline: none;
   border-radius: 3px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .input_feedback {

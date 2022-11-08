@@ -42,10 +42,10 @@ import { GLOBALTYPES } from './globalTypes';
 // };
 
 // Get All Product
-export const all_users = () => async (dispatch) => {
+export const all_users = (token) => async (dispatch) => {
   try {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { userloading: true } });
-    const res = await getDataAPI('all_users');
+    const res = await getDataAPI('all_users', token);
     console.log(res.data);
 
     dispatch({

@@ -7,6 +7,7 @@ export const login = (data) => async (dispatch) => {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: true } });
 
     const res = await postDataAPI('login', data);
+    // console.log(res.data);
 
     dispatch({
       type: GLOBALTYPES.ALERT,
@@ -17,7 +18,7 @@ export const login = (data) => async (dispatch) => {
     //
     setTimeout(() => {
       dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: false } });
-      history.push('/');
+      window.location.href = '/overview';
     }, 2000);
   } catch (error) {
     dispatch({

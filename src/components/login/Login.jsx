@@ -4,17 +4,19 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as EmailValidator from 'email-validator';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 
 // COMPONENTS
 import './Login.css';
 import logo from '../../assets/logo.png';
 import { useSelector } from 'react-redux';
 import Loading from './../../common/alert/Loading';
+import { login } from './../../redux/actions/authAction';
 
 const Login = () => {
   const [typePass, setTypePass] = useState(false);
-  const { loading } = useSelector((state) => state.alert);
-
+  const { authloading } = useSelector((state) => state.alert);
+  const dispatch = useDispatch();
   //
 
   return (
@@ -22,6 +24,7 @@ const Login = () => {
       initialValues={{ email: '', password: '' }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(async () => {
+          dispatch(login(values));
           setSubmitting(false);
         }, 500);
       }}
@@ -122,7 +125,7 @@ const Login = () => {
 
                       <div className='form_group'>
                         <button type='submit' disabled={isSubmitting}>
-                          {loading ? (
+                          {authloading ? (
                             <Loading width='25px' height='25px' color='#fff' />
                           ) : (
                             'Sign in'
