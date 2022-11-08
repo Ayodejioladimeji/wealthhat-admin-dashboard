@@ -78,9 +78,26 @@ const Sidebar = (props) => {
 
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/'>Overview</NavLink>
-                  <NavLink to='/dashboard/create-agent'>Create Agent</NavLink>
+                  <NavLink to='/overview'>Overview</NavLink>
                   <NavLink to='/dashboard/all-activity'>All Activity</NavLink>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <div className='menu-item'>
+                <div
+                  className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
+                  onClick={handleToggle}
+                >
+                  <i className='bi bi-person-bounding-box'></i>
+                </div>
+                <span>Agents</span>
+              </div>
+              <ul className={`sub-menu`}>
+                <li>
+                  <NavLink to='/dashboard/create-agent'>Create Agent</NavLink>
+                  <NavLink to='/dashboard/all-agents'>All Agents</NavLink>
                 </li>
               </ul>
             </li>
@@ -97,14 +114,15 @@ const Sidebar = (props) => {
               </div>
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/dashoard/all-portfolios'>
-                    All Portfolios
-                  </NavLink>
+                  <NavLink to='/dashoard/all-portfolio'>All Portfolios</NavLink>
                   <NavLink to='/dashboard/investment-portfolio'>
                     Investment Portfolios
                   </NavLink>
                   <NavLink to='/dashboard/cash-portfolio'>
                     Cash Portfolios
+                  </NavLink>
+                  <NavLink to='/dashboard/closed-portfolio'>
+                    Closed Portfolios
                   </NavLink>
                 </li>
               </ul>
@@ -116,20 +134,19 @@ const Sidebar = (props) => {
                   className={toggle ? 'menu-icon menu-icons' : 'menu-icon'}
                   onClick={handleToggle}
                 >
-                  <i className='bi bi-bag'></i>
+                  <i className='bi bi-credit-card-2-back'></i>
                 </div>
                 <span>Transactions</span>
               </div>
 
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/dashboard/create-payment'>
-                    Create Payment
+                  <NavLink to='dashboard/withdraw-request'>
+                    Withdraw Request
                   </NavLink>
                   <NavLink to='dashboard/all-payment'>All Payment</NavLink>
                   <NavLink to='dashboard/all-withdrawal'>Withdrawal</NavLink>
                   <NavLink to='dashboard/all-deposits'>Deposits</NavLink>
-                  <NavLink to='dashboard/all-deposits'>Withdraw Request</NavLink>
                 </li>
               </ul>
             </li>
@@ -146,7 +163,6 @@ const Sidebar = (props) => {
               </div>
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to='/users/create-user'>Create User</NavLink>
                   <NavLink to='/users/all-users'>All Users</NavLink>
                 </li>
               </ul>

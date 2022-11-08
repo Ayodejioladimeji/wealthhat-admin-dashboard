@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://wealth-hat.herokuapp.com"
+  "proxy": "http://localhost:8000"
 }

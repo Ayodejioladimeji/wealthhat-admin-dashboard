@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Layout from '../common/Layout';
-import User from './../components/users/Users';
+import User from '../components/users/Users';
 
 // COMPONENTS
 
 //
 
-const Settings = () => {
+const AllWithdrawal = () => {
   const { toggle } = useSelector((state) => state.utils);
 
   //
@@ -20,4 +20,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default AllWithdrawal;
