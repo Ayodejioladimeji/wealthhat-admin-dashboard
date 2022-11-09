@@ -177,6 +177,7 @@
   box-sizing: border-box;
   padding: 8px;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .main-menu .sub-menu a:hover {

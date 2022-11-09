@@ -1,4 +1,4 @@
-import { GLOBALTYPES } from "../actions/globalTypes";
+import { GLOBALTYPES } from '../actions/globalTypes';
 
 const initialState = {
   all_users: [],
@@ -6,6 +6,7 @@ const initialState = {
   logged_agent: {},
   is_admin: false,
   category_modal: false,
+  delete_callback: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -40,6 +41,12 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         category_modal: payload,
+      };
+
+    case GLOBALTYPES.DELETE_CALLBACK:
+      return {
+        ...state,
+        delete_callback: payload,
       };
 
     default:

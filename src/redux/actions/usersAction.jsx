@@ -1,6 +1,6 @@
-import { getDataAPI, postDataAPIS } from "../../utils/fetchData";
-import { GLOBALTYPES } from "./globalTypes";
-import { deleteDataAPIS } from "./../../utils/fetchData";
+import { getDataAPI, postDataAPIS } from '../../utils/fetchData';
+import { GLOBALTYPES } from './globalTypes';
+import { deleteDataAPIS } from './../../utils/fetchData';
 
 // Create Agent
 export const createAgent = (data, token) => async (dispatch) => {
@@ -10,7 +10,7 @@ export const createAgent = (data, token) => async (dispatch) => {
       payload: { createagentloading: true },
     });
 
-    const res = await postDataAPIS("create_agent", data, token);
+    const res = await postDataAPIS('create_agent', data, token);
     console.log(res.data.msg);
 
     dispatch({
@@ -23,7 +23,7 @@ export const createAgent = (data, token) => async (dispatch) => {
         type: GLOBALTYPES.ALERT,
         payload: { createagentloading: false },
       });
-      window.location.href = "/dashboard/create-agent";
+      window.location.href = '/dashboard/all-agents';
     }, 2000);
   } catch (error) {
     console.log(error.response.data.msg);
@@ -48,7 +48,7 @@ export const createAgent = (data, token) => async (dispatch) => {
 export const loggedAgent = (token) => async (dispatch) => {
   try {
     // dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: true } });
-    const res = await getDataAPI("user", token);
+    const res = await getDataAPI('agent', token);
 
     res.data.role === 1 &&
       dispatch({ type: GLOBALTYPES.IS_ADMIN, payload: true });
@@ -60,6 +60,7 @@ export const loggedAgent = (token) => async (dispatch) => {
 
     // dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
   } catch (error) {
+    // console.log(error.response);
     //
     dispatch({
       type: GLOBALTYPES.ALERT,
@@ -75,7 +76,7 @@ export const loggedAgent = (token) => async (dispatch) => {
 export const all_agents = (token) => async (dispatch) => {
   try {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: true } });
-    const res = await getDataAPI("all_agents", token);
+    const res = await getDataAPI('all_agents', token);
     // console.log(res.data);
 
     dispatch({
@@ -100,7 +101,7 @@ export const all_agents = (token) => async (dispatch) => {
 export const all_users = (token) => async (dispatch) => {
   try {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: true } });
-    const res = await getDataAPI("all_users", token);
+    const res = await getDataAPI('all_users', token);
     // console.log(res.data);
 
     dispatch({
@@ -121,26 +122,33 @@ export const all_users = (token) => async (dispatch) => {
   }
 };
 
-export const delete_agents = (id, token) => async (dispatch) => {
-  try {
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { deleteloading: true } });
-    const res = await deleteDataAPIS(`agents/delete/${id}`, token);
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { success: res.data.msg } });
-
-    setTimeout(() => {
+export const delete_agents =
+  (id, token, delete_callback) => async (dispatch) => {
+    try {
       dispatch({ type: GLOBALTYPES.ALERT, payload: { deleteloading: true } });
-      dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
-    }, 2000);
-  } catch (error) {
-    dispatch({
-      type: GLOBALTYPES.ALERT,
-      payload: {
-        error: error.response.data.error,
-      },
-    });
+      const res = await deleteDataAPIS(`agents/delete/${id}`, token);
+      dispatch({ type: GLOBALTYPES.ALERT, payload: { success: res.data.msg } });
 
-    setTimeout(() => {
-      dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
-    }, 5000);
-  }
-};
+      // callback
+      dispatch({
+        type: GLOBALTYPES.DELETE_CALLBACK,
+        payload: !delete_callback,
+      });
+
+      setTimeout(() => {
+        dispatch({ type: GLOBALTYPES.ALERT, payload: { deleteloading: true } });
+        dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
+      }, 2000);
+    } catch (error) {
+      dispatch({
+        type: GLOBALTYPES.ALERT,
+        payload: {
+          error: error.response.data.error,
+        },
+      });
+
+      setTimeout(() => {
+        dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
+      }, 5000);
+    }
+  };
