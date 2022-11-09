@@ -55,7 +55,7 @@ const Orders = () => {
         </div>
 
         <div className="myorder-image">
-          <img src="/assets/gadgets.png" alt="" />
+          {/* <img src="/assets/gadgets.png" alt="" /> */}
         </div>
       </div>
       {/* 

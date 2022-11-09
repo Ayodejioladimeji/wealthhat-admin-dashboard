@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   background: var(--black-color);
-  width: 260px;
+  width: 230px;
   height: 100%;
   box-sizing: border-box;
   transition: width 0.2s ease-in;
@@ -148,6 +148,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-in;
+  font-size: var(--font-smaller);
 }
 
 .side-menu .main-menu .sub-menu.active {
@@ -155,6 +156,18 @@
 }
 
 .side-menu .main-menu .sub-menu a {
+  display: block;
+  margin: 5px 0;
+  font-size: var(--font-smaller);
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--light-color);
+  box-sizing: border-box;
+  padding: 8px;
+  transition: var(--transition);
+}
+
+.side-menu .main-menu .sub-menu .log {
   display: block;
   margin: 5px 0;
   font-size: var(--font-smaller);
@@ -174,7 +187,6 @@
 .side-menu .main-menu .sub-menu a.active {
   background: var(--secondary-color);
   display: block;
-
   border-radius: 5px;
   color: var(--white-color);
 }

@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Layout from '../common/Layout';
-import User from '../components/users/Users';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Layout from "../common/Layout";
+import Activities from "../components/activity/Activity";
+import { all_activity } from "./../redux/actions/activityAction";
 
 // COMPONENTS
 
@@ -9,12 +10,21 @@ import User from '../components/users/Users';
 
 const Activity = () => {
   const { toggle } = useSelector((state) => state.utils);
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  // get all users
+  useEffect(() => {
+    if (token) {
+      dispatch(all_activity(token));
+    }
+  }, [dispatch, token]);
 
   //
   return (
     <Layout>
-      <div id={toggle ? 'response' : 'responsive'}>
-        <User />
+      <div id={toggle ? "response" : "responsive"}>
+        <Activities />
       </div>
     </Layout>
   );

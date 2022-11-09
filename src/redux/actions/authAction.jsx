@@ -1,34 +1,33 @@
-import { GLOBALTYPES } from './globalTypes';
-import { postDataAPI } from './../../utils/fetchData';
+import { GLOBALTYPES } from "./globalTypes";
+import { postDataAPI } from "./../../utils/fetchData";
 
 //
 export const login = (data) => async (dispatch) => {
   try {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: true } });
 
-    const res = await postDataAPI('login', data);
-    // console.log(res.data);
+    const res = await postDataAPI("login", data);
+    console.log(res.data);
+    dispatch({ type: GLOBALTYPES.TOKEN, payload: res.data.access_token });
 
     dispatch({
       type: GLOBALTYPES.ALERT,
-      payload: { success: 'Login Successful' },
+      payload: { success: res.data.msg },
     });
-    dispatch({ type: GLOBALTYPES.TOKEN, payload: res.data.access_token });
 
     //
     setTimeout(() => {
-      dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: false } });
-      window.location.href = '/overview';
+      dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
+      window.location.href = "/overview";
     }, 2000);
   } catch (error) {
     dispatch({
       type: GLOBALTYPES.ALERT,
-      payload: { error: error.response.message },
+      payload: { error: error.response.data.msg },
     });
 
     setTimeout(() => {
       dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
-      dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: false } });
     }, 5000);
   }
 };
