@@ -113,17 +113,6 @@ tr:nth-child(even) {
   align-items: center;
 }
 
-.table-actions .view {
-  background: var(--primary-color);
-  padding: 10px 15px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: var(--white-color);
-  margin-right: 10px;
-  border-radius: 3px;
-}
-
 .table-actions .delete {
   background: red;
   padding: 10px 15px;
@@ -132,6 +121,8 @@ tr:nth-child(even) {
   cursor: pointer;
   color: var(--white-color);
   border-radius: 3px;
+  display: flex;
+  align-items: center;
 }
 
 .empty-agents {

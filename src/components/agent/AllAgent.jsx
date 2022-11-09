@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 
 //
@@ -19,6 +19,7 @@ const AllAgent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState("");
   const [values, setValues] = useState("");
+  const dispatch = useDispatch();
 
   let sorted = filteringMethod(all_agents, data, values);
 
@@ -109,7 +110,8 @@ const AllAgent = () => {
                         <div className="table-actions">
                           {alert.deleteloading ? (
                             <button className="delete">
-                              <Loading /> delete agent
+                              <Loading width="20" height="20" color="#fff" />{" "}
+                              delete agent
                             </button>
                           ) : (
                             <button
