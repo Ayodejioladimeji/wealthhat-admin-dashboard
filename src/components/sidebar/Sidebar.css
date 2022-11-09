@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   background: var(--black-color);
-  width: 260px;
+  width: 220px;
   height: 100%;
   box-sizing: border-box;
   transition: width 0.2s ease-in;
