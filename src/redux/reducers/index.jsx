@@ -1,9 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import utils from './utilsReducer';
-import alert from './alertReducer';
-import users from './usersReducer';
-import auth from './authReducer';
+import utils from "./utilsReducer";
+import alert from "./alertReducer";
+import users from "./usersReducer";
+import auth from "./authReducer";
+import activity from "./activityReducer";
 
 // =================
 export default combineReducers({
@@ -11,4 +12,5 @@ export default combineReducers({
   alert,
   users,
   auth,
+  activity,
 });

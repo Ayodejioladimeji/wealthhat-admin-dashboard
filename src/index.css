@@ -107,8 +107,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 @media screen and (min-width: 900px) {
   #responsive {
-      width: calc(100% - 220px);
-      margin-left: 220px;
+      width: calc(100% - 230px);
+      margin-left: 230px;
       padding: 100px 20px;
       min-height: 100vh;
       transition: var(--transition);

@@ -33,7 +33,7 @@ export const all_users = (token) => async (dispatch) => {
   try {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { userloading: true } });
     const res = await getDataAPI("all_users", token);
-    console.log(res.data);
+    // console.log(res.data);
 
     dispatch({
       type: GLOBALTYPES.ALL_USERS,
