@@ -2,6 +2,7 @@ import { GLOBALTYPES } from "../actions/globalTypes";
 
 const initialState = {
   all_users: [],
+  all_agents: [],
   logged_agent: {},
   is_admin: false,
   category_modal: false,
@@ -27,6 +28,12 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         all_users: payload,
+      };
+
+    case GLOBALTYPES.ALL_AGENTS:
+      return {
+        ...state,
+        all_agents: payload,
       };
 
     case GLOBALTYPES.CATEGORY_MODAL:

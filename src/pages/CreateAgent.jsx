@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Layout from '../common/Layout';
-import User from '../components/users/Users';
+import React from "react";
+import { useSelector } from "react-redux";
+import Layout from "../common/Layout";
+import CreateAgents from "./../components/agent/CreateAgent";
 
 // COMPONENTS
 
@@ -13,8 +13,8 @@ const CreateAgent = () => {
   //
   return (
     <Layout>
-      <div id={toggle ? 'response' : 'responsive'}>
-        <User />
+      <div id={toggle ? "response" : "responsive"}>
+        <CreateAgents />
       </div>
     </Layout>
   );

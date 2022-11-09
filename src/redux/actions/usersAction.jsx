@@ -1,5 +1,47 @@
-import { getDataAPI } from "../../utils/fetchData";
+import { getDataAPI, postDataAPIS } from "../../utils/fetchData";
 import { GLOBALTYPES } from "./globalTypes";
+
+// Create Agent
+export const createAgent = (data, token) => async (dispatch) => {
+  try {
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { createagentloading: true },
+    });
+
+    const res = await postDataAPIS("create_agent", data, token);
+    console.log(res.data.msg);
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { success: res.data.msg },
+    });
+
+    setTimeout(() => {
+      dispatch({
+        type: GLOBALTYPES.ALERT,
+        payload: { createagentloading: false },
+      });
+      window.location.href = "/dashboard/create-agent";
+    }, 2000);
+  } catch (error) {
+    console.log(error.response.data.msg);
+    //
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: {
+        error: error.response.data.msg,
+      },
+    });
+
+    setTimeout(() => {
+      dispatch({
+        type: GLOBALTYPES.ALERT,
+        payload: {},
+      });
+    }, 6000);
+  }
+};
 
 // get logged in agent
 export const loggedAgent = (token) => async (dispatch) => {
@@ -28,19 +70,19 @@ export const loggedAgent = (token) => async (dispatch) => {
   }
 };
 
-// Get All Users
-export const all_users = (token) => async (dispatch) => {
+// Get All Agents
+export const all_agents = (token) => async (dispatch) => {
   try {
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { userloading: true } });
-    const res = await getDataAPI("all_users", token);
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: true } });
+    const res = await getDataAPI("all_agents", token);
     // console.log(res.data);
 
     dispatch({
-      type: GLOBALTYPES.ALL_USERS,
+      type: GLOBALTYPES.ALL_AGENTS,
       payload: res.data,
     });
 
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { userloading: false } });
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: false } });
   } catch (error) {
     //
     dispatch({
@@ -49,6 +91,31 @@ export const all_users = (token) => async (dispatch) => {
         error: error.response.data.error,
       },
     });
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { userloading: false } });
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: false } });
+  }
+};
+
+// Get All Users
+export const all_users = (token) => async (dispatch) => {
+  try {
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: true } });
+    const res = await getDataAPI("all_users", token);
+    // console.log(res.data);
+
+    dispatch({
+      type: GLOBALTYPES.ALL_USERS,
+      payload: res.data,
+    });
+
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: false } });
+  } catch (error) {
+    //
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: {
+        error: error.response.data.error,
+      },
+    });
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: false } });
   }
 };

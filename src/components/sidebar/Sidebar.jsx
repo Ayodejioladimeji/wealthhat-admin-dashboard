@@ -110,7 +110,7 @@ const Sidebar = (props) => {
               <ul className={`sub-menu`}>
                 <li>
                   <NavLink to="/dashboard/create-agent">Create Agent</NavLink>
-                  {/* <NavLink to="/dashboard/all-agents">All Agents</NavLink> */}
+                  <NavLink to="/dashboard/all-agents">All Agents</NavLink>
                 </li>
               </ul>
             </li>
