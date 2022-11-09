@@ -61,7 +61,6 @@ export const deleteDataAPIS = async (url, token) => {
   const res = await axios.delete(endpoint + url, {
     headers: {
       Authorization: token,
-      "Content-type": "application/json;charset=UTF-8",
     },
   });
   return res;

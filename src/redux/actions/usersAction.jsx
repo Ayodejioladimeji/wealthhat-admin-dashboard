@@ -1,5 +1,6 @@
 import { getDataAPI, postDataAPIS } from "../../utils/fetchData";
 import { GLOBALTYPES } from "./globalTypes";
+import { deleteDataAPIS } from "./../../utils/fetchData";
 
 // Create Agent
 export const createAgent = (data, token) => async (dispatch) => {
@@ -117,5 +118,29 @@ export const all_users = (token) => async (dispatch) => {
       },
     });
     dispatch({ type: GLOBALTYPES.ALERT, payload: { getagentloading: false } });
+  }
+};
+
+export const delete_agents = (id, token) => async (dispatch) => {
+  try {
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { deleteloading: true } });
+    const res = await deleteDataAPIS(`agents/delete/${id}`, token);
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { success: res.data.msg } });
+
+    setTimeout(() => {
+      dispatch({ type: GLOBALTYPES.ALERT, payload: { deleteloading: true } });
+      dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
+    }, 2000);
+  } catch (error) {
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: {
+        error: error.response.data.error,
+      },
+    });
+
+    setTimeout(() => {
+      dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
+    }, 5000);
   }
 };

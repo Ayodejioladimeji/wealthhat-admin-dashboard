@@ -8,12 +8,14 @@ import Loading from "../../common/alert/Loading";
 import Goback from "../../common/goback/Goback";
 import Filter from "../../common/filter/Filter";
 import { filteringMethod } from "../../utils/utils";
+import { delete_agents } from "./../../redux/actions/usersAction";
 
 const PageSize = 25;
 
 const AllAgent = () => {
   const { alert } = useSelector((state) => state);
   const { all_agents } = useSelector((state) => state.users);
+  const { token } = useSelector((state) => state.auth);
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState("");
   const [values, setValues] = useState("");
@@ -32,6 +34,11 @@ const AllAgent = () => {
 
   //
   const count = page + currentData.length;
+
+  // Handle Delete method
+  const handleDelete = (id) => {
+    dispatch(delete_agents(id, token));
+  };
 
   //
   return (
@@ -100,7 +107,18 @@ const AllAgent = () => {
                       <td>{moment(updatedAt).format("MMMM Do YYYY")}</td>
                       <td>
                         <div className="table-actions">
-                          <button className="delete">delete agent</button>
+                          {alert.deleteloading ? (
+                            <button className="delete">
+                              <Loading /> delete agent
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleDelete(_id)}
+                              className="delete"
+                            >
+                              delete agent
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>
