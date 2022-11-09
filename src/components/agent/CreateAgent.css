@@ -1,0 +1,61 @@
+.agent {
+  width: 100% !important;
+}
+
+.agent-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white-color);
+  border: 2px solid var(--secondary-color);
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 200px;
+  width: 100%;
+}
+
+.agent-header {
+  width: 70%;
+  padding: 20px;
+}
+
+.agent h2 {
+  font-weight: 700;
+  margin-bottom: 10px !important;
+  font-size: var(--font-big);
+  font-family: "Roboto";
+  color: var(--secondary-color);
+  text-transform: uppercase;
+}
+
+.myorder-image {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.myagent-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.agent-table {
+  background: var(--white-color);
+  padding: 50px 20px;
+  box-shadow: var(--shadoos);
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.agent-form {
+  width: 500px;
+  border: 2px solid var(--light-color);
+  padding: 40px;
+  border-radius: 5px;
+}

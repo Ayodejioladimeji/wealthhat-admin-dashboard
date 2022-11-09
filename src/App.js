@@ -1,34 +1,32 @@
-import React, { useEffect } from 'react';
-import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import Router from './routes/Router';
-import Sidebar from './components/sidebar/Sidebar';
-import Topbar from './components/topbar/Topbar';
-import { all_product, get_categories } from './redux/actions/ProductAction';
-import ScrollToTop from './common/ScrollToTop';
-import Alert from './common/alert/Alert';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+
+// Components
+import Router from "./routes/Router";
+import ScrollToTop from "./common/ScrollToTop";
+import Alert from "./common/alert/Alert";
+import { loggedAgent } from "./redux/actions/usersAction";
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const { callback } = useSelector((state) => state.utils);
+  const { token } = useSelector((state) => state.auth);
 
   // useEffect
-  useEffect(() => {
-    dispatch(all_product());
-  }, [dispatch]);
 
+  // get logged in agents
   useEffect(() => {
-    dispatch(get_categories());
-  }, [dispatch, callback]);
+    if (token) {
+      dispatch(loggedAgent(token));
+    }
+  }, [token, dispatch]);
 
   //
   return (
     <BrowserRouter>
       <ScrollToTop>
         <Alert />
-        <Topbar />
-        <Sidebar />
         <Router />
       </ScrollToTop>
     </BrowserRouter>

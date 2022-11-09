@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import AgentLogin from './../components/login/Login';
+
+// COMPONENTS
+
+//
 
 const Login = () => {
-  return <div>Login</div>;
+  //
+  return <AgentLogin />;
 };
 
 export default Login;

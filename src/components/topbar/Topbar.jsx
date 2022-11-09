@@ -8,7 +8,10 @@ import { GLOBALTYPES } from "./../../redux/actions/globalTypes";
 
 const Topbar = () => {
   const { toggle } = useSelector((state) => state.utils);
+  const { logged_agent } = useSelector((state) => state.users);
   const dispatch = useDispatch();
+
+  const { firstname, lastname, role } = logged_agent;
 
   //
   return (
@@ -25,13 +28,8 @@ const Topbar = () => {
 
         <div className="topbar-profile">
           <div className="topbar-name">
-            <small>Ayodeji</small>
-            <small> Oladimeji</small>
-            <span>ADMINISTRATOR</span>
-          </div>
-
-          <div className="topbar-image">
-            <img src="/assets/fashion.png" alt="" />
+            <small>{firstname}</small> <small>{lastname}</small>
+            {role === 0 ? <span>AGENT</span> : <span>ADMINISTRATOR</span>}
           </div>
         </div>
       </div>

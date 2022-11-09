@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const endpoint = process.env.REACT_APP_API;
+// const endpoint = process.env.REACT_APP_API;
+const endpoint = "http://localhost:8000/api/";
 
 // THE POST DATA API
 export const postDataAPI = async (url, data) => {
@@ -12,8 +13,7 @@ export const postDataAPI = async (url, data) => {
 export const postDataAPIS = async (url, data, token) => {
   const res = await axios.post(endpoint + url, data, {
     headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-type": "application/json;charset=UTF-8",
+      Authorization: token,
     },
   });
   return res;
@@ -22,17 +22,7 @@ export const postDataAPIS = async (url, data, token) => {
 export const postImageAPIS = async (url, data, token) => {
   const res = await axios.post(endpoint + url, data, {
     headers: {
-      "content-type": "multipart/form-data",
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return res;
-};
-
-export const postAPIS = async (url, token) => {
-  const res = await axios.post(endpoint + url, token, {
-    headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: token,
       "Content-type": "application/json;charset=UTF-8",
     },
   });
@@ -43,7 +33,7 @@ export const postAPIS = async (url, token) => {
 export const getDataAPI = async (url, token) => {
   const res = await axios.get(endpoint + url, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: token,
       "Content-type": "application/json;charset=UTF-8",
     },
   });
@@ -59,7 +49,7 @@ export const getData = async (url) => {
 export const patchDataAPI = async (url, data, token) => {
   const res = await axios.patch(endpoint + url, data, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: token,
       "Content-type": "application/json;charset=UTF-8",
     },
   });
@@ -70,8 +60,7 @@ export const patchDataAPI = async (url, data, token) => {
 export const deleteDataAPIS = async (url, token) => {
   const res = await axios.delete(endpoint + url, {
     headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-type": "application/json;charset=UTF-8",
+      Authorization: token,
     },
   });
   return res;
