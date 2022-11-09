@@ -4,7 +4,7 @@ import { GLOBALTYPES } from "./globalTypes";
 // get logged in agent
 export const loggedAgent = (token) => async (dispatch) => {
   try {
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: true } });
+    // dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: true } });
     const res = await getDataAPI("user", token);
 
     res.data.role === 1 &&
@@ -15,7 +15,7 @@ export const loggedAgent = (token) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
+    // dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
   } catch (error) {
     //
     dispatch({
@@ -24,7 +24,7 @@ export const loggedAgent = (token) => async (dispatch) => {
         error: error.response.data.error,
       },
     });
-    dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
+    // dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
   }
 };
 

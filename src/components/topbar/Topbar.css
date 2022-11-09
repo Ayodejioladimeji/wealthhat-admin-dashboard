@@ -1,6 +1,6 @@
 .top {
   height: 65px;
-  background: var(--black-color);
+  background: var(--secondary-color);
   width: 100%;
   position: fixed;
 }

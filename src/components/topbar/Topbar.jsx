@@ -11,7 +11,7 @@ const Topbar = () => {
   const { logged_agent } = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
-  const { firstname, lastname } = logged_agent;
+  const { firstname, lastname, role } = logged_agent;
 
   //
   return (
@@ -29,7 +29,7 @@ const Topbar = () => {
         <div className="topbar-profile">
           <div className="topbar-name">
             <small>{firstname}</small> <small>{lastname}</small>
-            <span>ADMINISTRATOR</span>
+            {role === 0 ? <span>AGENT</span> : <span>ADMINISTRATOR</span>}
           </div>
         </div>
       </div>

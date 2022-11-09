@@ -1,7 +1,7 @@
 .side-menu {
   position: fixed;
   top: 0;
-  background: var(--black-color);
+  background: var(--secondary-color);
   width: 230px;
   height: 100%;
   box-sizing: border-box;
@@ -185,7 +185,7 @@
 }
 
 .side-menu .main-menu .sub-menu a.active {
-  background: var(--secondary-color);
+  background: var(--tetiary-color);
   display: block;
   border-radius: 5px;
   color: var(--white-color);

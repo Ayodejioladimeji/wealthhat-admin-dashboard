@@ -32,10 +32,11 @@ const Sidebar = (props) => {
     menuItems.forEach((el) => {
       el.addEventListener("click", (e) => {
         const next = el.nextElementSibling;
+
         removeActiveClassFromSubMenu();
         menuItems.forEach((el) => el.classList.remove("active"));
         el.classList.toggle("active");
-        // console.log(next);
+
         if (next !== null) {
           next.classList.toggle("active");
         }
@@ -109,7 +110,7 @@ const Sidebar = (props) => {
               <ul className={`sub-menu`}>
                 <li>
                   <NavLink to="/dashboard/create-agent">Create Agent</NavLink>
-                  <NavLink to="/dashboard/all-agents">All Agents</NavLink>
+                  {/* <NavLink to="/dashboard/all-agents">All Agents</NavLink> */}
                 </li>
               </ul>
             </li>
@@ -127,7 +128,7 @@ const Sidebar = (props) => {
               <ul className={`sub-menu`}>
                 <li>
                   <NavLink to="/dashoard/all-portfolio">All Portfolios</NavLink>
-                  <NavLink to="/dashboard/investment-portfolio">
+                  {/* <NavLink to="/dashboard/investment-portfolio">
                     Investment Portfolios
                   </NavLink>
                   <NavLink to="/dashboard/cash-portfolio">
@@ -135,7 +136,7 @@ const Sidebar = (props) => {
                   </NavLink>
                   <NavLink to="/dashboard/closed-portfolio">
                     Closed Portfolios
-                  </NavLink>
+                  </NavLink> */}
                 </li>
               </ul>
             </li>
@@ -153,12 +154,12 @@ const Sidebar = (props) => {
 
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to="dashboard/withdraw-request">
+                  {/* <NavLink to="dashboard/withdraw-request">
                     Withdraw Request
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink to="/dashboard/all-payment">All Payment</NavLink>
-                  <NavLink to="/dashboard/all-withdrawal">Withdrawal</NavLink>
-                  <NavLink to="/dashboard/all-deposits">Deposits</NavLink>
+                  {/* <NavLink to="/dashboard/all-withdrawal">Withdrawal</NavLink>
+                  <NavLink to="/dashboard/all-deposits">Deposits</NavLink> */}
                 </li>
               </ul>
             </li>
@@ -192,10 +193,10 @@ const Sidebar = (props) => {
               </div>
               <ul className={`sub-menu`}>
                 <li>
-                  <NavLink to="/settings/create-complain">
+                  {/* <NavLink to="/settings/create-complain">
                     Create Complain
                   </NavLink>
-                  <NavLink to="/settings/view-complain">View Complain</NavLink>
+                  <NavLink to="/settings/view-complain">View Complain</NavLink> */}
                   <div className="log" onClick={logoutUser}>
                     Logout
                   </div>
