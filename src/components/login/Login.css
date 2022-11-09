@@ -14,7 +14,7 @@
 /* THE SECTION OF THE LOGIN LEFT */
 .login_left {
   width: 40%;
-  background: url('../../assets/login_background.svg');
+  background: url("../../assets/login_background.svg");
   background-position: center;
   background-size: cover;
   display: none;
@@ -120,6 +120,9 @@
   border-radius: 3px;
   margin-top: 15px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .input_feedback {
@@ -152,7 +155,7 @@
   .login_left_div h1 {
     font-size: 35px;
     text-align: left;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: "Black Han Sans", sans-serif;
     -webkit-text-stroke: 1px var(--secondary-color);
     /* text-shadow: 3px 3px var(--secondary-color); */
   }

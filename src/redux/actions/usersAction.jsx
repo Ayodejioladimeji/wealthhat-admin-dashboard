@@ -1,52 +1,39 @@
-import { getDataAPI } from '../../utils/fetchData';
-import { GLOBALTYPES } from './globalTypes';
+import { getDataAPI } from "../../utils/fetchData";
+import { GLOBALTYPES } from "./globalTypes";
 
-// all Users
-// export const createProduct = (data, token) => async (dispatch) => {
-//   try {
-//     dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: true } });
+// get logged in agent
+export const loggedAgent = (token) => async (dispatch) => {
+  try {
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: true } });
+    const res = await getDataAPI("user", token);
 
-//     const res = await postDataAPIS(
-//       'https://verifibiz.herokuapp.com/api/v1/product/add',
-//       data,
-//       {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//           'Content-type': 'application/json;charset=UTF-8',
-//         },
-//       }
-//     );
-//     // console.log(res.data);
+    res.data.role === 1 &&
+      dispatch({ type: GLOBALTYPES.IS_ADMIN, payload: true });
 
-//     dispatch({
-//       type: GLOBALTYPES.ALERT,
-//       payload: {
-//         success: res.data.message,
-//       },
-//     });
+    dispatch({
+      type: GLOBALTYPES.LOGGED_AGENT,
+      payload: res.data,
+    });
 
-//     setTimeout(() => {
-//       dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
-//       dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
-//     }, 6000);
-//   } catch (error) {
-//     //
-//     console.log(error.response);
-//     dispatch({
-//       type: GLOBALTYPES.ALERT,
-//       payload: {
-//         error: error.response.data.error,
-//       },
-//     });
-//   }
-// };
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
+  } catch (error) {
+    //
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: {
+        error: error.response.data.error,
+      },
+    });
+    dispatch({ type: GLOBALTYPES.ALERT, payload: { agentloading: false } });
+  }
+};
 
-// Get All Product
+// Get All Users
 export const all_users = (token) => async (dispatch) => {
   try {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { userloading: true } });
-    const res = await getDataAPI('all_users', token);
-    console.log(res.data);
+    const res = await getDataAPI("all_users", token);
+    // console.log(res.data);
 
     dispatch({
       type: GLOBALTYPES.ALL_USERS,
