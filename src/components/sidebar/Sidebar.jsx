@@ -156,9 +156,9 @@ const Sidebar = (props) => {
                   <NavLink to="dashboard/withdraw-request">
                     Withdraw Request
                   </NavLink>
-                  <NavLink to="dashboard/all-payment">All Payment</NavLink>
-                  <NavLink to="dashboard/all-withdrawal">Withdrawal</NavLink>
-                  <NavLink to="dashboard/all-deposits">Deposits</NavLink>
+                  <NavLink to="/dashboard/all-payment">All Payment</NavLink>
+                  <NavLink to="/dashboard/all-withdrawal">Withdrawal</NavLink>
+                  <NavLink to="/dashboard/all-deposits">Deposits</NavLink>
                 </li>
               </ul>
             </li>

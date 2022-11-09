@@ -6,6 +6,7 @@ import users from "./usersReducer";
 import auth from "./authReducer";
 import activity from "./activityReducer";
 import portfolio from "./portfolioReducer";
+import payment from "./paymentReducer";
 
 // =================
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
   auth,
   activity,
   portfolio,
+  payment,
 });
